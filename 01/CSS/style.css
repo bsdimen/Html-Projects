@@ -5,14 +5,13 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  cursor: url("../Assets/cursor_1.svg"), auto;
 }
 
 body {
   font-family: "Oswald", monospace;
   color: #131313;
   background-color: #f0f0f0;
-  cursor: url("../Assets/cursor_1.svg"), auto;
+  overflow-x: hidden;
 }
 
 a {
@@ -33,6 +32,11 @@ ul {
 .center-h {
   display: flex;
   justify-content: center;
+}
+
+.center-v {
+  display: flex;
+  align-items: center;
 }
 
 /*======================COMPONENTS=============================*/
@@ -69,7 +73,7 @@ header .icons .one-bar {
 header .logo {
   font-size: 40px;
   font-weight: 500;
-  color: #b2b2b2;
+  color: #c9c9c9;
 }
 header .logo span {
   color: #DE753D;
@@ -83,7 +87,7 @@ header nav ul {
 }
 header nav ul li a {
   font-size: 20px;
-  color: #b2b2b2;
+  color: #c9c9c9;
 }
 header nav ul li a:hover {
   color: #f0f0f0;
@@ -139,7 +143,7 @@ header nav ul li a:hover {
 }
 .hero-section .hero-section-content p {
   margin-top: 30px;
-  color: #b2b2b2;
+  color: #c9c9c9;
   width: 700px;
   font-size: 25px;
   opacity: 0;
@@ -152,12 +156,12 @@ header nav ul li a:hover {
   flex-direction: row;
   align-items: center;
   gap: 8px;
-  color: #b2b2b2;
+  color: #c9c9c9;
   position: absolute;
   bottom: 34px;
   right: 10%;
   opacity: 30%;
-  border: 1px solid #b2b2b2;
+  border: 1px solid #c9c9c9;
   animation: animateColor 1s infinite;
 }
 .hero-section .scroll-down svg {
@@ -179,72 +183,102 @@ header nav ul li a:hover {
 }
 .discover-section .discover-section-places {
   display: flex;
-  flex-wrap: nowrap;
   flex-direction: row;
-  overflow-x: hidden;
 }
 .discover-section .discover-section-places .discover-section-single-place {
-  flex: 1 0 380px;
-  height: 400px;
+  height: 500px;
   display: flex;
   flex-direction: row;
-  color: #f0f0f0;
   position: relative;
-  padding-block: 28px;
-  padding-inline: 16px;
-  background-color: rgba(222, 117, 61, 0.4117647059);
 }
-.discover-section .discover-section-places .discover-section-single-place h3 {
+.discover-section .discover-section-places .discover-section-single-place .details {
+  display: block;
+  background-image: none;
+  padding-block: 34px;
+  padding-inline: 0;
+  width: 0;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  transition: clip-path 0.3s ease;
+  position: relative;
+}
+.discover-section .discover-section-places .discover-section-single-place .details::after {
+  content: "";
   position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 300px;
+  z-index: 1;
+  pointer-events: none;
+}
+.discover-section .discover-section-places .discover-section-single-place .details .details-imgs {
+  width: 100%;
+  height: 300px;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+.discover-section .discover-section-places .discover-section-single-place .details .details-imgs .main-img {
+  object-fit: cover;
+  flex-grow: 8;
+  padding-right: 4px;
+  border-right: 1px solid #c9c9c9;
+}
+.discover-section .discover-section-places .discover-section-single-place .details .details-imgs .details-caresoul-imgs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+}
+.discover-section .discover-section-places .discover-section-single-place .details .details-imgs .details-caresoul-imgs .sec-img {
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+  padding-top: 8px;
+  border-top: 1px solid #c9c9c9;
+}
+.discover-section .discover-section-places .discover-section-single-place .discover-section-single-place-heading {
+  padding-block: 8px;
+  padding-inline: 16px;
+  width: 240px;
+  height: 100%;
+  background-image: url("../Assets/diego-allen-unsplash.jpg");
+  background-size: cover;
+  transition: width 0.3s ease;
+  position: relative;
+}
+.discover-section .discover-section-places .discover-section-single-place .discover-section-single-place-heading::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: -20px;
+  height: 100%;
+  width: 40px;
+  z-index: 1;
+  pointer-events: none;
+}
+.discover-section .discover-section-places .discover-section-single-place .discover-section-single-place-heading h3 {
+  position: absolute;
+  transform: rotate(0) translateX(0);
+  transition: transform 0.3s ease;
   bottom: 28px;
   background-image: none;
 }
-.discover-section .discover-section-places .discover-section-single-place .details {
-  display: none;
-  background-image: none;
-  padding-block: 34px;
-  color: #f0f0f0;
-  background-color: #DE753D;
+.discover-section .discover-section-places .discover-section-single-place .discover-section-single-place-heading:hover {
+  transform: scaleX(0.85);
+  display: flex;
+  justify-content: center;
 }
-.discover-section .discover-section-places :nth-child(1) {
-  background-image: url("../Assets/diego-allen-unsplash.jpg");
-  background-size: cover;
+.discover-section .discover-section-places .discover-section-single-place .discover-section-single-place-heading:hover h3 {
+  transform: rotate(-90deg) translateX(30px) translateY(-20px);
 }
-.discover-section .discover-section-places :nth-child(2) {
-  background-image: url("../Assets/diego-allen-unsplash.jpg");
-  background-size: cover;
-}
-.discover-section .discover-section-places :nth-child(3) {
-  background-image: url("../Assets/diego-allen-unsplash.jpg");
-  background-size: cover;
-}
-.discover-section .discover-section-places :nth-child(4) {
-  background-image: url("../Assets/diego-allen-unsplash.jpg");
-  background-size: cover;
-}
-.discover-section .discover-section-places :nth-child(5) {
-  background-image: url("../Assets/diego-allen-unsplash.jpg");
-  background-size: cover;
-}
-.discover-section .discover-section-places :nth-child(6) {
-  background-image: url("../Assets/diego-allen-unsplash.jpg");
-  background-size: cover;
-}
-.discover-section .discover-section-places :nth-child(7) {
-  background-image: url("../Assets/diego-allen-unsplash.jpg");
-  background-size: cover;
-}
-.discover-section .discover-section-places :nth-child(8) {
-  background-image: url("../Assets/diego-allen-unsplash.jpg");
-  background-size: cover;
-}
-.discover-section .discover-section-places :nth-child(9) {
-  background-image: url("../Assets/diego-allen-unsplash.jpg");
-  background-size: cover;
-}
-.discover-section .discover-section-places :nth-child(10) {
-  background-image: url("../Assets/diego-allen-unsplash.jpg");
-  background-size: cover;
+.discover-section .discover-section-places .discover-section-single-place .discover-section-single-place-heading:hover ~ .details {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  width: 60vw;
+  padding-inline: 28px;
+  margin-left: 20px;
 }
 .discover-section .icons {
   display: flex;
@@ -264,6 +298,142 @@ header nav ul li a:hover {
 }
 .discover-section .icons .arrow-icon svg path {
   stroke: #f0f0f0;
+}
+
+.history-section {
+  height: 100vh;
+  padding: 28px;
+}
+.history-section .history-section-timeline {
+  height: 70vh;
+  width: 100%;
+}
+.history-section .history-section-timeline .timeline-content {
+  width: 100%;
+  position: relative;
+}
+.history-section .history-section-timeline .timeline-content .line-h {
+  width: 100%;
+  height: 4px;
+  background-color: #DE753D;
+  position: relative;
+  overflow: hidden;
+}
+.history-section .history-section-timeline .timeline-content .line-h::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  animation: moveLine 2s linear infinite;
+}
+.history-section .history-section-timeline .timeline-content .line-v {
+  width: 15px;
+  height: 15px;
+  transform: translate(90deg);
+  background-color: #DE753D;
+  position: absolute;
+  top: -6px;
+  left: 0px;
+  cursor: pointer;
+}
+.history-section .history-section-timeline .timeline-content .line-v.active {
+  background-color: #f0f0f0;
+  border: 2px solid #DE753D;
+}
+.history-section .history-section-timeline .timeline-content > :nth-of-type(2) {
+  left: 1.1%;
+}
+.history-section .history-section-timeline .timeline-content > :nth-of-type(3) {
+  left: 29.26%;
+}
+.history-section .history-section-timeline .timeline-content > :nth-of-type(4) {
+  left: 38.5%;
+}
+.history-section .history-section-timeline .timeline-content > :nth-of-type(5) {
+  left: 88%;
+}
+.history-section .history-section-timeline .timeline-content > :nth-of-type(6) {
+  left: 92.4%;
+}
+.history-section .history-section-timeline .timeline-content > :nth-of-type(7) {
+  left: 99%;
+}
+.history-section .history-section-timeline .timeline-content > :nth-of-type(8) {
+  left: 2299.66%;
+}
+.history-section .history-section-timeline .timeline-content .timeline-events .timeline-event {
+  width: fit-content;
+  position: absolute;
+  top: 20px;
+}
+.history-section .history-section-timeline .timeline-content .timeline-events > :nth-of-type(1) {
+  left: 1.1%;
+}
+.history-section .history-section-timeline .timeline-content .timeline-events > :nth-of-type(2) {
+  left: 29.26%;
+}
+.history-section .history-section-timeline .timeline-content .timeline-events > :nth-of-type(3) {
+  left: 38.5%;
+}
+.history-section .history-section-timeline .timeline-content .timeline-events > :nth-of-type(4) {
+  left: 88%;
+}
+.history-section .history-section-timeline .timeline-content .timeline-events > :nth-of-type(5) {
+  left: 92.4%;
+}
+.history-section .history-section-timeline .timeline-content .timeline-events > :nth-of-type(6) {
+  left: 99%;
+}
+.history-section .history-section-timeline .timeline-content .timeline-events > :nth-of-type(7) {
+  left: 2299.66%;
+}
+.history-section .history-section-timeline .timeline-content .events .event {
+  position: absolute;
+  top: -12rem;
+  display: flex;
+  flex-direction: row-reverse;
+  max-height: 300px;
+  background-color: #DE753D;
+  color: #f0f0f0;
+  padding: 8px;
+  gap: 16px;
+  clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  transition: clip-path 0.3s ease;
+}
+.history-section .history-section-timeline .timeline-content .events .event img {
+  width: 200px;
+  object-fit: cover;
+}
+.history-section .history-section-timeline .timeline-content .events .event h6 {
+  color: #c9c9c9;
+  font-weight: 500;
+}
+.history-section .history-section-timeline .timeline-content .events .event.active {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.history-section .history-section-timeline .timeline-content .events > :nth-of-type(1) {
+  left: 0.55%;
+}
+.history-section .history-section-timeline .timeline-content .events > :nth-of-type(2) {
+  left: 14.63%;
+}
+.history-section .history-section-timeline .timeline-content .events > :nth-of-type(3) {
+  left: 19.25%;
+}
+.history-section .history-section-timeline .timeline-content .events > :nth-of-type(4) {
+  left: 44%;
+}
+.history-section .history-section-timeline .timeline-content .events > :nth-of-type(5) {
+  left: 46.2%;
+}
+.history-section .history-section-timeline .timeline-content .events > :nth-of-type(6) {
+  left: 80%;
+}
+.history-section .history-section-timeline .timeline-content .events > :nth-of-type(7) {
+  left: 80%;
 }
 
 /*======================SECTIONS=============================*/
