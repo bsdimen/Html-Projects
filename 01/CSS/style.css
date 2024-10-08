@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Oswald:wght@200..700&display=swap");
+/*======================VARIABLES=============================*/
+/*======================BASE=============================*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  cursor: url("../Assets/cursor_1.svg"), auto;
+}
+
+body {
+  font-family: "Oswald", monospace;
+  color: #131313;
+  background-color: #f0f0f0;
+  cursor: url("../Assets/cursor_1.svg"), auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/*======================REUSED CLASSES=============================*/
+.container {
+  width: 1200px;
+  max-width: 80%;
+}
+
+.center-h {
+  display: flex;
+  justify-content: center;
+}
+
+/*======================COMPONENTS=============================*/
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  z-index: 3000;
+  position: sticky;
+  top: 0%;
+}
+header .icons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #DE753D;
+  padding: 8px;
+  width: fit-content;
+  display: none;
+}
+header .icons .one-bar {
+  display: block;
+  width: 45px;
+  height: 3px;
+  background-color: #f0f0f0;
+}
+@media (max-width: 768px) {
+  header .icons {
+    display: flex;
+  }
+}
+header .logo {
+  font-size: 40px;
+  font-weight: 500;
+  color: #b2b2b2;
+}
+header .logo span {
+  color: #DE753D;
+}
+header nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+header nav ul li a {
+  font-size: 20px;
+  color: #b2b2b2;
+}
+header nav ul li a:hover {
+  color: #f0f0f0;
+}
+@media (max-width: 768px) {
+  header nav ul {
+    flex-direction: column;
+    background-color: #DE753D;
+    position: absolute;
+    top: -300vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding-block: 20px;
+    transition: top 0.3s ease-in-out;
+    z-index: -1;
+  }
+  header nav ul li {
+    width: 100%;
+    padding-inline: 16px;
+  }
+  header nav ul li a {
+    text-align: start;
+  }
+  header nav ul.opened {
+    top: 6rem;
+  }
+}
+
+/*======================SECTIONS=============================*/
+.hero-section {
+  padding-block: 34px;
+  background-image: linear-gradient(rgba(19, 19, 19, 0.6235294118), rgba(19, 19, 19, 0.6235294118)), url("../Assets/diego-allen-unsplash.jpg");
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.hero-section .hero-section-content {
+  width: 700px;
+  transform: translateY(150px);
+  padding-block: 50px;
+}
+.hero-section .hero-section-content h1 {
+  font-size: 50px;
+  color: #f0f0f0;
+}
+.hero-section .hero-section-content h1 span {
+  font-family: "Aref Ruqaa";
+  color: #DE753D;
+  padding: 8px;
+  font-size: 100px;
+}
+.hero-section .hero-section-content p {
+  margin-top: 30px;
+  color: #b2b2b2;
+  width: 700px;
+  font-size: 25px;
+  opacity: 0;
+  transform: translateY(600px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.hero-section .scroll-down {
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  color: #b2b2b2;
+  position: absolute;
+  bottom: 34px;
+  right: 10%;
+  opacity: 30%;
+  border: 1px solid #b2b2b2;
+  animation: animateColor 1s infinite;
+}
+.hero-section .scroll-down svg {
+  animation: moveIcon 1s infinite;
+}
+
+.discover-section {
+  padding-block: 34px;
+  min-height: 100vh;
+  position: relative;
+}
+.discover-section .discover-section-heading h1 {
+  font-size: 50px;
+}
+.discover-section .discover-section-heading h4 {
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+.discover-section .discover-section-places {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  overflow-x: hidden;
+}
+.discover-section .discover-section-places .discover-section-single-place {
+  flex: 1 0 380px;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  color: #f0f0f0;
+  position: relative;
+  padding-block: 28px;
+  padding-inline: 16px;
+  background-color: rgba(222, 117, 61, 0.4117647059);
+}
+.discover-section .discover-section-places .discover-section-single-place h3 {
+  position: absolute;
+  bottom: 28px;
+  background-image: none;
+}
+.discover-section .discover-section-places .discover-section-single-place .details {
+  display: none;
+  background-image: none;
+  padding-block: 34px;
+  color: #f0f0f0;
+  background-color: #DE753D;
+}
+.discover-section .discover-section-places :nth-child(1) {
+  background-image: url("../Assets/diego-allen-unsplash.jpg");
+  background-size: cover;
+}
+.discover-section .discover-section-places :nth-child(2) {
+  background-image: url("../Assets/diego-allen-unsplash.jpg");
+  background-size: cover;
+}
+.discover-section .discover-section-places :nth-child(3) {
+  background-image: url("../Assets/diego-allen-unsplash.jpg");
+  background-size: cover;
+}
+.discover-section .discover-section-places :nth-child(4) {
+  background-image: url("../Assets/diego-allen-unsplash.jpg");
+  background-size: cover;
+}
+.discover-section .discover-section-places :nth-child(5) {
+  background-image: url("../Assets/diego-allen-unsplash.jpg");
+  background-size: cover;
+}
+.discover-section .discover-section-places :nth-child(6) {
+  background-image: url("../Assets/diego-allen-unsplash.jpg");
+  background-size: cover;
+}
+.discover-section .discover-section-places :nth-child(7) {
+  background-image: url("../Assets/diego-allen-unsplash.jpg");
+  background-size: cover;
+}
+.discover-section .discover-section-places :nth-child(8) {
+  background-image: url("../Assets/diego-allen-unsplash.jpg");
+  background-size: cover;
+}
+.discover-section .discover-section-places :nth-child(9) {
+  background-image: url("../Assets/diego-allen-unsplash.jpg");
+  background-size: cover;
+}
+.discover-section .discover-section-places :nth-child(10) {
+  background-image: url("../Assets/diego-allen-unsplash.jpg");
+  background-size: cover;
+}
+.discover-section .icons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-top: 8px;
+  position: absolute;
+  right: 10%;
+}
+.discover-section .icons .arrow-icon {
+  background-color: #DE753D;
+  width: fit-content;
+  padding-inline: 16px;
+  padding-block: 4px;
+  display: flex;
+  align-items: center;
+}
+.discover-section .icons .arrow-icon svg path {
+  stroke: #f0f0f0;
+}
+
+/*======================SECTIONS=============================*/
+@keyframes animateColor {
+  0% {
+    opacity: 40%;
+  }
+  50% {
+    opacity: 60%;
+  }
+  90% {
+    opacity: 80%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes moveIcon {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Oswald:wght@200..700&display=swap');
+/*======================VARIABLES=============================*/
+$color-primary: #DE753D;
+$color-dark-700: #131313;
+$color-light-700: #f0f0f0;
+$color-light-600: #b2b2b2;
+$color-light-500: #6c6c6c;
+
+$font-size-base: 16px;
+$font-size-base-large: 20px;
+$h1-heading: 50px;
+$h2-heading: 40px;
+$h3-heading: 30px;
+$h4-heading: 25px;
+
+$padding-5: 4px;
+$padding-10: 8px;
+$padding-20: 16px;
+$padding-30: 20px;
+$padding-40: 28px;
+$padding-50: 34px;
+$padding-60: 50px;
+
+$small-screen: 768px;
+$meduim-scree: 1024;
+$large-screen: 1200px;
+
+/*======================BASE=============================*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    cursor: url("../Assets/cursor_1.svg"), auto;
+}
+
+body {
+    font-family: "Oswald", monospace;
+    color: $color-dark-700;
+    background-color: $color-light-700;
+    cursor: url("../Assets/cursor_1.svg"), auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/*======================REUSED CLASSES=============================*/
+.container {
+    width: 1200px;
+    max-width: 80%;
+}
+
+.center-h {
+    display: flex;
+    justify-content: center;
+}
+
+/*======================COMPONENTS=============================*/
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    z-index: 3000;
+    position: sticky;
+    top: 0%;
+
+    .icons {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background-color: $color-primary;
+        padding: $padding-10;
+        width: fit-content;
+        display: none;
+
+        .one-bar {
+            display: block;
+            width: 45px;
+            height: 3px;
+            background-color: $color-light-700;
+        }
+
+        @media (max-width:$small-screen) {
+            display: flex;
+        }
+    }
+
+    .logo {
+        font-size: $h2-heading;
+        font-weight: 500;
+        color: $color-light-600;
+
+        span {
+            color: $color-primary;
+        }
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        gap: 20px;
+
+        li a {
+            font-size: $font-size-base-large;
+            color: $color-light-600;
+
+            &:hover {
+                color: $color-light-700;
+            }
+        }
+
+
+
+        @media (max-width:$small-screen) {
+            flex-direction: column;
+            background-color: $color-primary;
+            position: absolute;
+            top: -300vh;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            padding-block: $padding-30;
+            transition: top 0.3s ease-in-out;
+            z-index: -1;
+
+            li {
+                width: 100%;
+                padding-inline: $padding-20;
+
+                a {
+                    text-align: start;
+                }
+            }
+
+            &.opened {
+                top: 6rem;
+            }
+        }
+    }
+}
+
+/*======================SECTIONS=============================*/
+.hero-section {
+    padding-block: $padding-50;
+    background-image: linear-gradient(#1313139f, #1313139f), url("../Assets/diego-allen-unsplash.jpg");
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    .hero-section-content {
+        width: 700px;
+        transform: translateY(150px);
+        padding-block: $padding-60;
+
+        h1 {
+            font-size: $h1-heading;
+            color: $color-light-700;
+
+            span {
+                font-family: "Aref Ruqaa";
+                color: $color-primary;
+                padding: $padding-10;
+                font-size: 100px;
+            }
+        }
+
+        p {
+            margin-top: 30px;
+            color: $color-light-600;
+            width: 700px;
+            font-size: $h4-heading;
+            opacity: 0;
+            transform: translateY(600px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+    }
+
+    .scroll-down {
+        padding: $padding-10;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        color: $color-light-600;
+        position: absolute;
+        bottom: $padding-50;
+        right: 10%;
+        opacity: 30%;
+        border: 1px solid $color-light-600;
+        animation: animateColor 1s infinite;
+
+        svg {
+            animation: moveIcon 1s infinite;
+        }
+    }
+}
+
+.discover-section {
+    padding-block: $padding-50;
+    min-height: 100vh;
+    position: relative;
+
+    .discover-section-heading {
+
+        h1 {
+            font-size: $h1-heading;
+        }
+
+        h4 {
+            font-size: $h4-heading;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+    }
+
+    .discover-section-places {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        overflow-x: hidden;
+
+        .discover-section-single-place {
+            flex: 1 0 380px;
+            height: 400px;
+            display: flex;
+            flex-direction: row;
+            color: $color-light-700;
+            position: relative;
+            padding-block: $padding-40;
+            padding-inline: $padding-20;
+            background-color: #de753d69;
+
+            h3 {
+                position: absolute;
+                bottom: $padding-40;
+                background-image: none;
+            }
+
+            .details {
+                display: none;
+                background-image: none;
+                padding-block: $padding-50;
+                color: $color-light-700;
+                background-color: $color-primary;
+            }
+        }
+
+        :nth-child(1) {
+            background-image: url("../Assets/diego-allen-unsplash.jpg");
+            background-size: cover;
+        }
+
+        :nth-child(2) {
+            background-image: url("../Assets/diego-allen-unsplash.jpg");
+            background-size: cover;
+        }
+
+        :nth-child(3) {
+            background-image: url("../Assets/diego-allen-unsplash.jpg");
+            background-size: cover;
+        }
+
+        :nth-child(4) {
+            background-image: url("../Assets/diego-allen-unsplash.jpg");
+            background-size: cover;
+        }
+
+        :nth-child(5) {
+            background-image: url("../Assets/diego-allen-unsplash.jpg");
+            background-size: cover;
+        }
+
+        :nth-child(6) {
+            background-image: url("../Assets/diego-allen-unsplash.jpg");
+            background-size: cover;
+        }
+
+        :nth-child(7) {
+            background-image: url("../Assets/diego-allen-unsplash.jpg");
+            background-size: cover;
+        }
+
+        :nth-child(8) {
+            background-image: url("../Assets/diego-allen-unsplash.jpg");
+            background-size: cover;
+        }
+
+        :nth-child(9) {
+            background-image: url("../Assets/diego-allen-unsplash.jpg");
+            background-size: cover;
+        }
+
+        :nth-child(10) {
+            background-image: url("../Assets/diego-allen-unsplash.jpg");
+            background-size: cover;
+        }
+    }
+
+    .icons {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        margin-top: 8px;
+        position: absolute;
+        right: 10%;
+
+        .arrow-icon {
+            background-color: $color-primary;
+            width: fit-content;
+            padding-inline: $padding-20;
+            padding-block: $padding-5;
+            display: flex;
+            align-items: center;
+
+            svg {
+                path {
+                    stroke: $color-light-700;
+                }
+            }
+        }
+
+    }
+}
+
+/*======================SECTIONS=============================*/
+@keyframes animateColor {
+    0% {
+        opacity: 40%;
+    }
+
+    50% {
+        opacity: 60%;
+    }
+
+    90% {
+        opacity: 80%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes moveIcon {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(10px);
+    }
+}
