@@ -184,6 +184,7 @@ header nav ul li a:hover {
 .discover-section .discover-section-places {
   display: flex;
   flex-direction: row;
+  overflow-x: hidden;
 }
 .discover-section .discover-section-places .discover-section-single-place {
   height: 500px;
@@ -305,63 +306,65 @@ header nav ul li a:hover {
   padding: 28px;
 }
 .history-section .history-section-timeline {
-  height: 70vh;
   width: 100%;
 }
 .history-section .history-section-timeline .timeline-content {
   width: 100%;
   position: relative;
 }
-.history-section .history-section-timeline .timeline-content .line-h {
-  width: 100%;
-  height: 4px;
+.history-section .history-section-timeline .timeline-content .timeline-chart {
+  position: absolute;
+  right: 0;
+  top: 30px;
+}
+.history-section .history-section-timeline .timeline-content .timeline-chart .line-v {
+  width: 4px;
+  height: 70vh;
   background-color: #DE753D;
   position: relative;
   overflow: hidden;
 }
-.history-section .history-section-timeline .timeline-content .line-h::before {
+.history-section .history-section-timeline .timeline-content .timeline-chart .line-v::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 100%;
   width: 100%;
   height: 100%;
   background-color: inherit;
   animation: moveLine 2s linear infinite;
 }
-.history-section .history-section-timeline .timeline-content .line-v {
+.history-section .history-section-timeline .timeline-content .timeline-chart .event-point {
   width: 15px;
   height: 15px;
-  transform: translate(90deg);
   background-color: #DE753D;
   position: absolute;
   top: -6px;
   left: 0px;
   cursor: pointer;
 }
-.history-section .history-section-timeline .timeline-content .line-v.active {
+.history-section .history-section-timeline .timeline-content .timeline-chart .event-point.active {
   background-color: #f0f0f0;
   border: 2px solid #DE753D;
 }
-.history-section .history-section-timeline .timeline-content > :nth-of-type(2) {
+.history-section .history-section-timeline .timeline-content .timeline-chart > :nth-of-type(2) {
   left: 1.1%;
 }
-.history-section .history-section-timeline .timeline-content > :nth-of-type(3) {
+.history-section .history-section-timeline .timeline-content .timeline-chart > :nth-of-type(3) {
   left: 29.26%;
 }
-.history-section .history-section-timeline .timeline-content > :nth-of-type(4) {
+.history-section .history-section-timeline .timeline-content .timeline-chart > :nth-of-type(4) {
   left: 38.5%;
 }
-.history-section .history-section-timeline .timeline-content > :nth-of-type(5) {
+.history-section .history-section-timeline .timeline-content .timeline-chart > :nth-of-type(5) {
   left: 88%;
 }
-.history-section .history-section-timeline .timeline-content > :nth-of-type(6) {
+.history-section .history-section-timeline .timeline-content .timeline-chart > :nth-of-type(6) {
   left: 92.4%;
 }
-.history-section .history-section-timeline .timeline-content > :nth-of-type(7) {
+.history-section .history-section-timeline .timeline-content .timeline-chart > :nth-of-type(7) {
   left: 99%;
 }
-.history-section .history-section-timeline .timeline-content > :nth-of-type(8) {
+.history-section .history-section-timeline .timeline-content .timeline-chart > :nth-of-type(8) {
   left: 2299.66%;
 }
 .history-section .history-section-timeline .timeline-content .timeline-events .timeline-event {
