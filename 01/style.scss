@@ -475,31 +475,32 @@ header {
                 }
 
                 >:nth-of-type(5) {
-                    top: calc(400*0.22%);
+                    top: calc(380*0.22%);
                 }
 
                 >:nth-of-type(6) {
-                    top: calc(420*0.22%);
+                    top: calc(400*0.22%);
                 }
 
                 >:nth-of-type(7) {
-                    top: calc(450*0.22%);
+                    top: calc(430*0.22%);
                 }
 
                 >:nth-of-type(8) {
-                    top: calc(10453*0.22%);
+                    top: calc(450*0.22%);
                 }
             }
 
             .events {
                 width: 100%;
+                overflow: hidden;
 
                 .event {
                     width: 100%;
                     display: flex;
                     flex-direction: row-reverse;
                     height: 100%;
-                    padding: $padding-10;
+                    padding-block: $padding-10;
 
                     .img {
                         flex-grow: 2;
@@ -542,6 +543,14 @@ header {
                                 color: $color-primary;
                                 font-weight: 400;
                             }
+                        }
+
+                        p {
+                            font-weight: 400;
+                            text-align: justify;
+                            width: 80%;
+                            margin-top: 20px;
+                            color: $color-light-500;
                         }
                     }
 

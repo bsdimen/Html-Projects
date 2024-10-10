@@ -380,26 +380,27 @@ header nav ul li a:hover {
   top: 38.5%;
 }
 .history-section .history-section-timeline .timeline-content .timeline-chart > :nth-of-type(5) {
-  top: 88%;
+  top: 83.6%;
 }
 .history-section .history-section-timeline .timeline-content .timeline-chart > :nth-of-type(6) {
-  top: 92.4%;
+  top: 88%;
 }
 .history-section .history-section-timeline .timeline-content .timeline-chart > :nth-of-type(7) {
-  top: 99%;
+  top: 94.6%;
 }
 .history-section .history-section-timeline .timeline-content .timeline-chart > :nth-of-type(8) {
-  top: 2299.66%;
+  top: 99%;
 }
 .history-section .history-section-timeline .timeline-content .events {
   width: 100%;
+  overflow: hidden;
 }
 .history-section .history-section-timeline .timeline-content .events .event {
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
   height: 100%;
-  padding: 8px;
+  padding-block: 8px;
 }
 .history-section .history-section-timeline .timeline-content .events .event .img {
   flex-grow: 2;
@@ -435,6 +436,13 @@ header nav ul li a:hover {
 .history-section .history-section-timeline .timeline-content .events .event .content h4 span {
   color: #DE753D;
   font-weight: 400;
+}
+.history-section .history-section-timeline .timeline-content .events .event .content p {
+  font-weight: 400;
+  text-align: justify;
+  width: 80%;
+  margin-top: 20px;
+  color: #6c6c6c;
 }
 
 /*======================SECTIONS=============================*/
