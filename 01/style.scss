@@ -2,6 +2,7 @@
 /*======================VARIABLES=============================*/
 $color-primary: #DE753D;
 $color-primary-light-800: #eeddd4;
+$color-primary-light-600: #e89061;
 $color-dark-700: #131313;
 $color-light-700: #f0f0f0;
 $color-light-600: #c9c9c9;
@@ -49,6 +50,13 @@ a {
 
 ul {
     list-style: none;
+}
+
+button {
+    background-color: transparent;
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
 }
 
 /*======================REUSED CLASSES=============================*/
@@ -219,14 +227,19 @@ header {
 
     .discover-section-heading {
 
-        h1 {
-            font-size: $h1-heading;
-        }
+        h3 {
+            font-size: $h3-heading;
+            position: relative;
 
-        h4 {
-            font-size: $h4-heading;
-            font-weight: 400;
-            margin-bottom: 25px;
+            &::before {
+                content: " ";
+                width: 8px;
+                height: 8px;
+                background-color: $color-primary;
+                position: absolute;
+                bottom: 8px;
+                left: -10px;
+            }
         }
     }
 
@@ -384,11 +397,28 @@ header {
     }
 }
 
-.separator {}
 
 .history-section {
-    height: 100vh;
-    padding: $padding-40;
+    min-height: 100vh;
+    margin-block: 80px;
+
+    .history-section-heading {
+        h3 {
+            font-size: $h3-heading;
+            position: relative;
+
+            &::before {
+                content: " ";
+                width: 8px;
+                height: 8px;
+                background-color: $color-primary;
+                position: absolute;
+                bottom: 8px;
+                left: -10px;
+            }
+        }
+    }
+
 
     .history-section-timeline {
         width: 100%;
@@ -448,6 +478,8 @@ header {
                         font-size: $font-size-base;
                         font-weight: 500;
                         transform: translateY(-50%);
+                        cursor: pointer;
+                        pointer-events: inherit;
                     }
 
                     &::after {
@@ -494,13 +526,22 @@ header {
             .events {
                 width: 100%;
                 overflow: hidden;
+                position: relative;
 
                 .event {
                     width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                     display: flex;
                     flex-direction: row-reverse;
                     height: 100%;
                     padding-block: $padding-10;
+                    opacity: 0;
+                    transform: translateY(400px);
+                    transition: transform 0.3s ease, opacity 0.3s ease;
+
+
 
                     .img {
                         flex-grow: 2;
@@ -513,7 +554,10 @@ header {
                         }
                     }
 
-
+                    &.active {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
 
                     .content {
                         flex-grow: 3;
@@ -562,6 +606,130 @@ header {
     }
 
 
+
+
+}
+
+.available-tours-section {
+    min-height: 100vh;
+
+    h3 {
+        font-size: $h3-heading;
+        position: relative;
+
+        &::before {
+            content: " ";
+            width: 8px;
+            height: 8px;
+            background-color: $color-primary;
+            position: absolute;
+            bottom: 8px;
+            left: -10px;
+        }
+    }
+
+    .available-tours-content {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 20px;
+        height: 100%;
+
+        .tours-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            flex-grow: 2;
+            flex-basis: 0;
+            border-left: 1px solid $color-light-600;
+            border-top: 1px solid $color-light-600;
+
+            .tour {
+                border-right: 1px solid $color-light-600;
+                border-bottom: 1px solid $color-light-600;
+                padding-block: $padding-30;
+                padding-inline: $padding-20;
+
+                h4 {
+                    margin-bottom: 10px;
+                    font-weight: 500;
+                }
+
+                p {
+                    font-weight: 400;
+                    font-size: 12px;
+                    color: $color-light-500;
+                }
+
+                button {
+                    font-size: $font-size-base-large;
+                    color: $color-primary;
+                    margin-top: 20px;
+                    transition: transform 0.3s ease;
+
+                    &:hover {
+                        transform: translateX(10px);
+                    }
+                }
+            }
+        }
+
+        .tour-section {
+            position: relative;
+            overflow: hidden;
+            height: 90vh;
+            flex-grow: 3;
+            flex-basis: 0;
+
+
+            .tour-details {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                height: 100%;
+                opacity: 0;
+                transform: translateY(50px);
+                transition: transform 0.3s ease;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                h1 {
+                    font-size: $h1-heading;
+                    color: $color-primary;
+                    margin-bottom: 20px;
+                }
+
+                p {
+                    font-size: $font-size-base-large;
+                }
+
+                ul {
+                    margin-top: 70px;
+                    margin-left: 30px;
+
+                    li {
+                        margin-bottom: 30px;
+                        font-size: $font-size-base-large;
+
+                        span {
+                            background-color: $color-primary;
+                            color: $color-light-700;
+                            padding-block: $padding-5;
+                            padding-inline: $padding-10;
+                            width: fit-content;
+
+                        }
+                    }
+                }
+
+                &.active {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+
+            }
+        }
+    }
 
 
 }

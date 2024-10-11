@@ -23,6 +23,13 @@ ul {
   list-style: none;
 }
 
+button {
+  background-color: transparent;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+}
+
 /*======================REUSED CLASSES=============================*/
 .container {
   width: 1200px;
@@ -173,13 +180,18 @@ header nav ul li a:hover {
   min-height: 100vh;
   position: relative;
 }
-.discover-section .discover-section-heading h1 {
-  font-size: 50px;
+.discover-section .discover-section-heading h3 {
+  font-size: 30px;
+  position: relative;
 }
-.discover-section .discover-section-heading h4 {
-  font-size: 25px;
-  font-weight: 400;
-  margin-bottom: 25px;
+.discover-section .discover-section-heading h3::before {
+  content: " ";
+  width: 8px;
+  height: 8px;
+  background-color: #DE753D;
+  position: absolute;
+  bottom: 8px;
+  left: -10px;
 }
 .discover-section .discover-section-places {
   display: flex;
@@ -302,8 +314,21 @@ header nav ul li a:hover {
 }
 
 .history-section {
-  height: 100vh;
-  padding: 28px;
+  min-height: 100vh;
+  margin-block: 80px;
+}
+.history-section .history-section-heading h3 {
+  font-size: 30px;
+  position: relative;
+}
+.history-section .history-section-heading h3::before {
+  content: " ";
+  width: 8px;
+  height: 8px;
+  background-color: #DE753D;
+  position: absolute;
+  bottom: 8px;
+  left: -10px;
 }
 .history-section .history-section-timeline {
   width: 100%;
@@ -359,6 +384,8 @@ header nav ul li a:hover {
   font-size: 16px;
   font-weight: 500;
   transform: translateY(-50%);
+  cursor: pointer;
+  pointer-events: inherit;
 }
 .history-section .history-section-timeline .timeline-content .timeline-chart .event-point::after {
   content: "";
@@ -394,13 +421,20 @@ header nav ul li a:hover {
 .history-section .history-section-timeline .timeline-content .events {
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
 .history-section .history-section-timeline .timeline-content .events .event {
   width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: row-reverse;
   height: 100%;
   padding-block: 8px;
+  opacity: 0;
+  transform: translateY(400px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 .history-section .history-section-timeline .timeline-content .events .event .img {
   flex-grow: 2;
@@ -410,6 +444,10 @@ header nav ul li a:hover {
   object-fit: cover;
   height: 100%;
   width: 100%;
+}
+.history-section .history-section-timeline .timeline-content .events .event.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 .history-section .history-section-timeline .timeline-content .events .event .content {
   flex-grow: 3;
@@ -443,6 +481,107 @@ header nav ul li a:hover {
   width: 80%;
   margin-top: 20px;
   color: #6c6c6c;
+}
+
+.available-tours-section {
+  min-height: 100vh;
+}
+.available-tours-section h3 {
+  font-size: 30px;
+  position: relative;
+}
+.available-tours-section h3::before {
+  content: " ";
+  width: 8px;
+  height: 8px;
+  background-color: #DE753D;
+  position: absolute;
+  bottom: 8px;
+  left: -10px;
+}
+.available-tours-section .available-tours-content {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 20px;
+  height: 100%;
+}
+.available-tours-section .available-tours-content .tours-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex-grow: 2;
+  flex-basis: 0;
+  border-left: 1px solid #c9c9c9;
+  border-top: 1px solid #c9c9c9;
+}
+.available-tours-section .available-tours-content .tours-container .tour {
+  border-right: 1px solid #c9c9c9;
+  border-bottom: 1px solid #c9c9c9;
+  padding-block: 20px;
+  padding-inline: 16px;
+}
+.available-tours-section .available-tours-content .tours-container .tour h4 {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.available-tours-section .available-tours-content .tours-container .tour p {
+  font-weight: 400;
+  font-size: 12px;
+  color: #6c6c6c;
+}
+.available-tours-section .available-tours-content .tours-container .tour button {
+  font-size: 20px;
+  color: #DE753D;
+  margin-top: 20px;
+  transition: transform 0.3s ease;
+}
+.available-tours-section .available-tours-content .tours-container .tour button:hover {
+  transform: translateX(10px);
+}
+.available-tours-section .available-tours-content .tour-section {
+  position: relative;
+  overflow: hidden;
+  height: 90vh;
+  flex-grow: 3;
+  flex-basis: 0;
+}
+.available-tours-section .available-tours-content .tour-section .tour-details {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.available-tours-section .available-tours-content .tour-section .tour-details h1 {
+  font-size: 50px;
+  color: #DE753D;
+  margin-bottom: 20px;
+}
+.available-tours-section .available-tours-content .tour-section .tour-details p {
+  font-size: 20px;
+}
+.available-tours-section .available-tours-content .tour-section .tour-details ul {
+  margin-top: 70px;
+  margin-left: 30px;
+}
+.available-tours-section .available-tours-content .tour-section .tour-details ul li {
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+.available-tours-section .available-tours-content .tour-section .tour-details ul li span {
+  background-color: #DE753D;
+  color: #f0f0f0;
+  padding-block: 4px;
+  padding-inline: 8px;
+  width: fit-content;
+}
+.available-tours-section .available-tours-content .tour-section .tour-details.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /*======================SECTIONS=============================*/

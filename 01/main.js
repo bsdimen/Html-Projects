@@ -24,7 +24,7 @@ window.addEventListener('keydown', (event) => {
 });
 /*=========================Hisory-Content==========================*/
 document.addEventListener("DOMContentLoaded", () => {
-    const dates = document.querySelectorAll(".line-v");
+    const dates = document.querySelectorAll(".event-point");
     const content = document.querySelectorAll(".event");
 
     dates.forEach((date, index) => {
@@ -43,4 +43,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
     });
+});
+
+/*=========================Hisory-Content==========================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+    const tours = document.querySelectorAll(".tour-button");
+    const tourContents = document.querySelectorAll(".tour-details");
+
+    tours.forEach((tour, index) => {
+        tour.addEventListener("click", () => {
+            tourContents.forEach((content) => {
+                content.classList.remove("active");
+            })
+            tourContents[index].classList.add("active")
+        })
+    })
+
+
 });
