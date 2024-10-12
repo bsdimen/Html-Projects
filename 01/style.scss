@@ -3,7 +3,7 @@
 $color-primary: #DE753D;
 $color-primary-light-800: #eeddd4;
 $color-primary-light-600: #e89061;
-$color-dark-700: #131313;
+$color-dark-700: #1a1a1a;
 $color-light-700: #f0f0f0;
 $color-light-600: #c9c9c9;
 $color-light-500: #6c6c6c;
@@ -32,7 +32,6 @@ $large-screen: 1200px;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    // cursor: url("../Assets/cursor_1.svg"), auto;
 }
 
 body {
@@ -40,7 +39,6 @@ body {
     color: $color-dark-700;
     background-color: $color-light-700;
     overflow-x: hidden;
-    // cursor: url("../Assets/cursor_1.svg"), auto;
 }
 
 a {
@@ -73,6 +71,21 @@ button {
 .center-v {
     display: flex;
     align-items: center;
+}
+
+.input-feild {
+    padding-block: $padding-10;
+    padding-inline: $padding-10;
+    font-family: inherit;
+    font-size: $font-size-base-large;
+    font-weight: 200;
+    max-width: 100%;
+    border: none;
+    display: block;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 /*======================COMPONENTS=============================*/
@@ -397,7 +410,6 @@ header {
     }
 }
 
-
 .history-section {
     min-height: 100vh;
     margin-block: 80px;
@@ -663,13 +675,33 @@ header {
                     font-size: $font-size-base-large;
                     color: $color-primary;
                     margin-top: 20px;
-                    transition: transform 0.3s ease;
+                    width: fit-content;
+                    height: fit-content;
+                    overflow: hidden;
 
-                    &:hover {
-                        transform: translateX(10px);
+                    &:hover {}
+                }
+
+                &.custom {
+                    background-color: $color-primary;
+                    color: $color-light-700;
+                    cursor: pointer;
+                    position: relative;
+
+                    h4 {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: start;
+                        font-size: $h4-heading;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
                     }
+
                 }
             }
+
+
         }
 
         .tour-section {
@@ -726,6 +758,54 @@ header {
                     transform: translateY(0);
                 }
 
+                &.custom {
+                    form {
+                        width: 80%;
+                        display: flex;
+                        justify-content: space-between;
+                        flex-direction: column;
+                        gap: 20px;
+
+                        textarea {
+                            resize: none;
+                        }
+
+                        .checkbox-group {
+                            display: flex;
+                            flex-direction: column;
+                            position: relative;
+                            height: fit-content;
+
+                            h4 {
+                                padding-block: $padding-10;
+                                padding-inline: $padding-10;
+                                font-family: inherit;
+                                font-size: $font-size-base-large;
+                                font-weight: 200;
+                                max-width: 100%;
+                                background-color: #fff;
+                            }
+
+                            .option {
+                                background-color: #fff;
+                                font-weight: 200;
+                                padding-block: $padding-10;
+                                padding-inline: $padding-10;
+                                position: absolute;
+                                top: 0;
+                                visibility: hidden;
+                                width: 100%;
+
+                                &:hover {
+                                    font-weight: 500;
+                                    background-color: $color-primary;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+
 
             }
         }
@@ -760,5 +840,22 @@ header {
 
     100% {
         transform: translateY(10px);
+    }
+}
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(100%);
+        /* Start at the bottom */
+    }
+
+    50% {
+        transform: translateY(-100%);
+        /* Move up and disappear */
+    }
+
+    100% {
+        transform: translateY(100%);
+        /* Return to the bottom */
     }
 }

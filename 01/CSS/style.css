@@ -9,7 +9,7 @@
 
 body {
   font-family: "Oswald", monospace;
-  color: #131313;
+  color: #1a1a1a;
   background-color: #f0f0f0;
   overflow-x: hidden;
 }
@@ -44,6 +44,20 @@ button {
 .center-v {
   display: flex;
   align-items: center;
+}
+
+.input-feild {
+  padding-block: 8px;
+  padding-inline: 8px;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 200;
+  max-width: 100%;
+  border: none;
+  display: block;
+}
+.input-feild:focus {
+  outline: none;
 }
 
 /*======================COMPONENTS=============================*/
@@ -532,10 +546,24 @@ header nav ul li a:hover {
   font-size: 20px;
   color: #DE753D;
   margin-top: 20px;
-  transition: transform 0.3s ease;
+  width: fit-content;
+  height: fit-content;
+  overflow: hidden;
 }
-.available-tours-section .available-tours-content .tours-container .tour button:hover {
-  transform: translateX(10px);
+.available-tours-section .available-tours-content .tours-container .tour.custom {
+  background-color: #DE753D;
+  color: #f0f0f0;
+  cursor: pointer;
+  position: relative;
+}
+.available-tours-section .available-tours-content .tours-container .tour.custom h4 {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  font-size: 25px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .available-tours-section .available-tours-content .tour-section {
   position: relative;
@@ -583,6 +611,46 @@ header nav ul li a:hover {
   opacity: 1;
   transform: translateY(0);
 }
+.available-tours-section .available-tours-content .tour-section .tour-details.custom form {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+}
+.available-tours-section .available-tours-content .tour-section .tour-details.custom form textarea {
+  resize: none;
+}
+.available-tours-section .available-tours-content .tour-section .tour-details.custom form .checkbox-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: fit-content;
+}
+.available-tours-section .available-tours-content .tour-section .tour-details.custom form .checkbox-group h4 {
+  padding-block: 8px;
+  padding-inline: 8px;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 200;
+  max-width: 100%;
+  background-color: #fff;
+}
+.available-tours-section .available-tours-content .tour-section .tour-details.custom form .checkbox-group .option {
+  background-color: #fff;
+  font-weight: 200;
+  padding-block: 8px;
+  padding-inline: 8px;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+}
+.available-tours-section .available-tours-content .tour-section .tour-details.custom form .checkbox-group .option:hover {
+  font-weight: 500;
+  background-color: #DE753D;
+  color: #fff;
+}
 
 /*======================SECTIONS=============================*/
 @keyframes animateColor {
@@ -605,6 +673,20 @@ header nav ul li a:hover {
   }
   100% {
     transform: translateY(10px);
+  }
+}
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(100%);
+    /* Start at the bottom */
+  }
+  50% {
+    transform: translateY(-100%);
+    /* Move up and disappear */
+  }
+  100% {
+    transform: translateY(100%);
+    /* Return to the bottom */
   }
 }
 

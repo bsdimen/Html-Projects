@@ -42,33 +42,37 @@
 </head>
 
 <body>
-    <section class="hero-section center-h">
+    <section class="hero-section center-h" aria-labelledby="hero_h1" aria-describedby="hero_para">
         <div class="container">
-            <header>
-                <span class="logo"><span>.</span>Andalusia</span>
-                <nav>
-                    <div class="icons" id="menu_bar">
+            <header role="banner">
+                <span class="logo"><span aria-hidden="true">.</span>Andalusia</span>
+                <nav role="navigation" aria-label="Main Navigation">
+                    <div class="icons" id="menu_bar" aria-label="Menu" role="button" tabindex="0" aria-expanded="false"
+                        aria-controls="menu_links">
                         <span class="one-bar"></span>
                         <span class="one-bar"></span>
                         <span class="one-bar"></span>
                     </div>
                     <ul id="menu_links">
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#home">Discover</a></li>
-                        <li><a href="#home">History</a></li>
-                        <li><a href="#home">Availabale Toors</a></li>
-                        <li><a href="#home">Contact us</a></li>
+                        <li><a href="#discover">Discover</a></li>
+                        <li><a href="#history">History</a></li>
+                        <li><a href="#tours">Available Tours</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
                     </ul>
                 </nav>
             </header>
-            <div class="hero-section-content">
-                <h1 id="hero_h1">Welcome to<span>الأندلس</span> <br>Explore the Heart of Andalusian History</h1>
-                <p id="hero_para">A short introduction explaining that Andulisia offers guided tours through historical
-                    landmarks in Andalusia,
-                    particularly focusing on buildings and monuments from the era of Muslim rule.</p>
-            </div>
-            <div class="scroll-down">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <main class="hero-section-content" role="main">
+                <h1 id="hero_h1">Welcome to<span aria-hidden="true">الأندلس</span> <br>Explore the Heart of Andalusian
+                    History</h1>
+                <p id="hero_para">A short introduction explaining that Andalusia offers guided tours through historical
+                    landmarks in Andalusia, particularly focusing on buildings and monuments from the era of Muslim
+                    rule.
+                </p>
+            </main>
+            <div class="scroll-down" aria-label="Scroll Down Section">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
                     <path d="M18.07 14.4301L12 20.5001L5.93 14.4301" stroke="currentColor" stroke-width="1.5"
                         stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M12 3.5V20.33" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
@@ -78,6 +82,7 @@
             </div>
         </div>
     </section>
+
     <section class="discover-section center-h">
         <div class="container">
             <div class="discover-section-heading">
@@ -503,13 +508,15 @@
                             Andalusia.</p>
                         <button class="tour-button">See Details</button>
                     </div>
-                    <div class="custom tour">
-                        <h4>Alhambra & Generalife Tour (Granada)</h4>
-                        <p>Discover the enchanting Alhambra Palace and the breathtaking Generalife Gardens, a
-                            masterpiece of
-                            Islamic architecture
-                            and engineering</p>
-                        <button>See Details</button>
+                    <div class="tour-button custom tour">
+                        <h4><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 12H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M12 18V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            Create Your Custom Tour</h4>
                     </div>
                 </div>
                 <div class="tour-section">
@@ -572,17 +579,34 @@
                         </ul>
                     </div>
                     <div class="tour-details custom" id="tour_details_custom">
-                        <h1>Alhambra & Generalife Tour (Granada)</h1>
-                        <p>Discover the enchanting Alhambra Palace and the breathtaking Generalife Gardens, a
-                            masterpiece of
-                            Islamic architecture
-                            and engineering. Stroll through the intricate halls and courtyards, marvel at the stucco
-                            decorations, and enjoy
-                            panoramic views of Granada.</p>
-                        <ul>
-                            <li><span>Duration</span> 4 hours</li>
-                            <li><span>Includes</span> Guided tour, skip-the-line access, transportation.</li>
-                        </ul>
+                        <h1>Request a Custom Tour </h1>
+                        <form action="">
+                            <input type="text" class="input-feild" placeholder="Fullname" required aria-required="true">
+                            <input type="email" class="input-feild" placeholder="email" required aria-required="true">
+                            <input type="number" class="input-feild" placeholder="Phone Number" required
+                                aria-required="true">
+                            <div class="checkbox-group" id="dropmenu">
+                                <h4 id="dropmenu_btn">Select Your Tour Locations</h4>
+                                <label class="option unselected">
+                                    Alhambra & Generalife (Granada)
+                                </label>
+                                <label class="option unselected">
+                                    Mezquita of Córdoba
+                                </label>
+                                <label class="option unselected">
+                                    Alcázar & Giralda Tower
+                                    (Seville)
+                                </label>
+                                <label class="option unselected">
+                                    Alcazaba of Almería
+                                </label>
+                            </div>
+                            <div class="selected-options"></div>
+                            <textarea class="input-feild" placeholder="Additional remarks"
+                                aria-required="false"></textarea>
+
+
+                        </form>
 
 
                     </div>
@@ -593,8 +617,12 @@
 
         </div>
     </section>
+    <section class="contact-us-section">
+        <h3>Contact Us</h3>
+    </section>
 
     <script src="main.js"></script>
+
 </body>
 
 </html>

@@ -22,7 +22,7 @@ window.addEventListener('keydown', (event) => {
         para.style.opacity = "1";
     }
 });
-/*=========================Hisory-Content==========================*/
+/*=========================TimeLine-Content==========================*/
 document.addEventListener("DOMContentLoaded", () => {
     const dates = document.querySelectorAll(".event-point");
     const content = document.querySelectorAll(".event");
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-/*=========================Hisory-Content==========================*/
+/*=========================Tours-Content==========================*/
 
 document.addEventListener("DOMContentLoaded", () => {
     const tours = document.querySelectorAll(".tour-button");
@@ -62,3 +62,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+
+/*=========================dropdown Custom Tour==========================*/
+document.addEventListener("DOMContentLoaded", () => {
+    const options = document.querySelectorAll(".option");
+    const dropMenuBtn = document.getElementById("dropmenu_btn");
+    const dropMenu = document.getElementById("dropmenu");
+
+
+    dropMenuBtn.addEventListener("click", () => {
+
+        options.forEach((option, index) => {
+            option.style.visibility = "visible"
+            option.style.top = (option.clientHeight * (index + 1)) + 'px';
+        });
+        document.addEventListener('click', function (event) {
+            if (!dropMenu.contains(event.target)) {
+                options.forEach((option, index) => {
+
+                    option.style.top = "0";
+                    option.style.visibility = "hidden"
+
+                });
+            }
+        });
+
+    })
+})
